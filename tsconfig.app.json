@@ -21,7 +21,7 @@
         "erasableSyntaxOnly": true,
         "noFallthroughCasesInSwitch": true,
 
-        /* Shadcn UI */
+        /* Path aliases (Shadcn UI) */
         "baseUrl": ".",
         "paths": {
             "@/*": ["./src/*"]

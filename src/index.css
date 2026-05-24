@@ -49,30 +49,42 @@
 }
 
 :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
+    /* ── SoulsWed Brand Palette ── */
+    --sw-navy: #0d1b2e; /* Deep navy — primary surface */
+    --sw-navy-mid: #16263d; /* Navy mid — navbar solid */
+    --sw-gold: #c9a96e; /* Champagne gold — accent */
+    --sw-gold-light: #e0c48a; /* Gold highlight */
+    --sw-cream: #faf8f4; /* Warm cream — page background */
+    --sw-white: #ffffff;
+    --sw-text-primary: #0d1b2e; /* Near-navy text */
+    --sw-text-secondary: #6b7280; /* Warm gray secondary text */
+    --sw-text-muted: #9ca3af;
+
+    /* ── Shadcn Token Overrides ── */
+    --background: oklch(0.988 0.004 80); /* Warm cream */
+    --foreground: oklch(0.145 0.02 255); /* Deep navy */
     --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
+    --card-foreground: oklch(0.145 0.02 255);
     --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.145 0.02 255);
+    --primary: oklch(0.21 0.04 255); /* Navy primary */
     --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.97 0.005 80);
+    --secondary-foreground: oklch(0.21 0.04 255);
+    --muted: oklch(0.97 0.005 80);
+    --muted-foreground: oklch(0.556 0.01 80);
+    --accent: oklch(0.76 0.08 70); /* Champagne gold */
+    --accent-foreground: oklch(0.145 0.02 255);
     --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
+    --border: oklch(0.92 0.004 80);
+    --input: oklch(0.92 0.004 80);
+    --ring: oklch(0.76 0.08 70);
     --chart-1: oklch(0.87 0 0);
     --chart-2: oklch(0.556 0 0);
     --chart-3: oklch(0.439 0 0);
     --chart-4: oklch(0.371 0 0);
     --chart-5: oklch(0.269 0 0);
-    --radius: 0.625rem;
+    --radius: 0.75rem;
     --sidebar: oklch(0.985 0 0);
     --sidebar-foreground: oklch(0.145 0 0);
     --sidebar-primary: oklch(0.205 0 0);
@@ -123,8 +135,66 @@
     }
     body {
         @apply bg-background text-foreground;
+        background-color: var(--sw-cream);
     }
     html {
         @apply font-sans;
+        scroll-behavior: smooth;
     }
+}
+
+/* ── SoulsWed Custom Utilities ── */
+@layer utilities {
+    .sw-gold-text {
+        color: var(--sw-gold);
+    }
+    .sw-navy-bg {
+        background-color: var(--sw-navy);
+    }
+    .sw-gold-border {
+        border-color: var(--sw-gold);
+    }
+    .text-shadow-hero {
+        text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+    }
+}
+
+/* ── Keyframe Animations ── */
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.animate-fade-slide-up {
+    animation: fadeSlideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.animate-fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+.animation-delay-100 {
+    animation-delay: 100ms;
+}
+.animation-delay-200 {
+    animation-delay: 200ms;
+}
+.animation-delay-300 {
+    animation-delay: 300ms;
+}
+.animation-delay-500 {
+    animation-delay: 500ms;
 }
